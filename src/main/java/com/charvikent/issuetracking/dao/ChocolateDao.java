@@ -1,5 +1,7 @@
 package com.charvikent.issuetracking.dao;
 import java.util.List;
+import java.util.Map;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.slf4j.Logger;
@@ -76,10 +78,10 @@ public class ChocolateDao
 		return  this.jdbcTemplate.query(sql, rowMapper);	
 	}
 	
-	public List<Chocolate> getChocolateStatusCount(Chocolate chocolate) 
+	public List<Map<String, Object>> getChocolateStatusCount(Chocolate chocolate) 
 	{
 	String sql="select ch.chocostatus as orderedstatus,count(ch.chocostatus) as number from chocolateordering ch where ch.chocostatus='"+chocolate.getChocostatus()+"'";
-	RowMapper<Chocolate> rowMapper = new BeanPropertyRowMapper<Chocolate>(Chocolate.class);
-	return  this.jdbcTemplate.query(sql, rowMapper);	
+	List<Map<String, Object>>  retlist = jdbcTemplate.queryForList(sql,new Object[]{});
+	return retlist;
 	}		
 }

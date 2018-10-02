@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import org.castor.core.util.Base64Decoder;
 import org.json.JSONException;
@@ -183,7 +185,7 @@ public class ChocolateRestController
 		LOGGER.debug("Calling getOrderStatusCount at controller");
 		String code =null;
 		HashMap<String,String> hm =new HashMap<String,String>();
-		List<Chocolate> listOrderBeans = chocolateDao.getChocolateStatusCount(ch);
+		List<Map<String, Object>> listOrderBeans = chocolateDao.getChocolateStatusCount(ch);
 		JSONObject json =new JSONObject();
 		if(null != listOrderBeans)
 		{
