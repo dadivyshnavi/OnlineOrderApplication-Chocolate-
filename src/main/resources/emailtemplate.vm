@@ -1,0 +1,12 @@
+<<html>  
+  <body>  
+  <h3>Hi ${name}, </h3> 
+  <div>
+  Successfully registered with EmployeeDatabase. 
+  </div>
+  <div> 
+   you can login using username:${username} and password :${password}
+  </div> 
+  <div>  If you did not request any registration, ignore this message and nothing will happen.</div>
+  </body> 
+  </html> 
